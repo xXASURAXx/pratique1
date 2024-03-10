@@ -12,15 +12,21 @@ public class EventManagerView {
     public EventManagerView() {
         scanner = new Scanner(System.in);
     }
+    
+    public void displaylogin() {
+        System.out.println("1. Cadastro de Usuario: ");
+        System.out.println("2. Login: ");
+
+
+    };
 
     public void displayMainMenu() {
         System.out.println("\nMenu Principal:");
-        System.out.println("1. Cadastro de Usuario");
-        System.out.println("2. Mostrar Todos os Usuarios");
-        System.out.println("3. Cadastro de Evento");
-        System.out.println("4. Mostrar Todos os Eventos");
-        System.out.println("5. Mostrar Eventos Próximos");
-        System.out.println("6. Sair");
+        System.out.println("1. Mostrar Todos os Usuarios");
+        System.out.println("2. Cadastro de Evento");
+        System.out.println("3. Mostrar Todos os Eventos");
+        System.out.println("4. Mostrar Eventos Próximos");
+        System.out.println("5. Sair");
         System.out.print("Escolha uma opção: ");
     }
 

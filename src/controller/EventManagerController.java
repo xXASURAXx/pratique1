@@ -29,6 +29,13 @@ public class EventManagerController {
     public void addUsuario(Usuario user) {
         users.add(user);
     }
+    
+    public Usuario logar(String usuario, String senha) {
+    	for (Usuario u : users) {
+			if ()
+		}
+    	
+    }
 
     public List<Event> getEvents() {
         return events;

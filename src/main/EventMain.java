@@ -14,31 +14,38 @@ public class EventMain {
         Scanner scanner = new Scanner(System.in);
         EventManagerController controller = new EventManagerController();
         
-
-
-        while (true) {
+        Boolean a= true;
+        Usuario login= null;
+        
+        view.displaylogin();
+        String choice = scanner.nextLine();
+        if (choice.equalsIgnoreCase("1")) {
+        	choice = "c";
+        } else {
+        	choice = "l";
+        }
+        
+        while (a) {
         	
-            view.displayMainMenu();
-            String choice = scanner.nextLine();
 
             switch (choice) {
             
             	case "1":
-            		view.displayUserMenu();
-                    String userName = scanner.nextLine();
-                    System.out.print("Digite a cidade do usuário: ");
-                    String userCity = scanner.nextLine();
-                    System.out.print("Digite o email do usuário: ");
-                    String userEmail = scanner.nextLine();
-                    System.out.print("Digite a idade do usuário: ");
-                    int userAge = scanner.nextInt();
-                    scanner.nextLine(); 
+            		view.displaylogin();
+                    choice = scanner.nextLine();
+                    if (choice.equalsIgnoreCase("1")) {
+                    	choice = "c";
+                    } else {
+                    	choice = "l";
+                    }
 
-                    Usuario user = new Usuario(userName, userCity, userEmail, userAge);
-                    controller.addUsuario(user);
+                    
                     
             	case "2":
             		controller.displayUsers();
+            		System.out.print("Voltar para o menu principal s/n? ");
+            		choice = scanner.nextLine();
+            		choice = choice.toLowerCase();
             		break;
             		
             	case "3":
@@ -68,8 +75,52 @@ public class EventMain {
                     
                 case "6":
                     System.out.println("Saindo...");
+                    a = false;
                     scanner.close();
                     System.exit(0);
+                    
+                case "s":
+                    view.displayMainMenu();
+                    choice = scanner.nextLine();
+                    break;
+                    
+                case "n":
+                    System.out.println("Saindo...");
+                    a = false;
+                    scanner.close();
+                    System.exit(0);
+                    
+                case "c":
+                	view.displayUserMenu();
+                    String userName = scanner.nextLine();
+                    System.out.print("Digite o usuario: ");
+                    String usuario = scanner.nextLine();
+                    System.out.print("Digite a senha: ");
+                    String userSenha = scanner.nextLine();
+                    System.out.print("Digite a cidade do usuário: ");
+                    String userCity = scanner.nextLine();
+                    System.out.print("Digite o email do usuário: ");
+                    String userEmail = scanner.nextLine();
+                    System.out.print("Digite a idade do usuário: ");
+                    int userAge = scanner.nextInt();
+                    scanner.nextLine(); 
+                    
+                    Usuario user = new Usuario(userName, usuario, userSenha,  userCity, userEmail, userAge);
+                    controller.addUsuario(user);
+                    
+                case "l":
+                	System.out.println("Usuario: ");
+                	String userLogin = scanner.nextLine();
+                	System.out.println("Senha: ");
+                	String userPass = scanner.nextLine();
+                	
+                	
+                case "7":
+                    login = null;
+                    choice = "1";
+                    break;
+                	
+                	
                     
                 default:
                     System.out.println("Escolha inválida");
